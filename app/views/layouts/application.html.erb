@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+
+
+        <nav class="navbar navbar-inverse navbar-fixed-top">
+          <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                  <span class="sr-only">Toggle navigation</span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+              </button>
+            </div>
+              <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+              <ul class="nav navbar-nav"  >
+              <li class="page-scroll"><%= link_to "Home", page_home_path %></li>
+              <li class="page-scroll"><%= link_to "Album", posts_path %></li>
+              <li class="page-scroll"><%= link_to "Contact", page_signin_path %></li>
+              <li class="page-scroll"><%= link_to "About", page_about_path %></li>
+            </ul>
+             <ul class="nav navbar-nav navbar-right">
+          <% if user_signed_in? %>
+            	<li  class="page-scroll"><%= link_to "Sign Out", destroy_user_session_path,method: :delete%></li>
+              <% if current_user.email=="priyanka.kadam615@gmail.com" %>
+                  <li  class="page-scroll"><%= link_to "Add Post", new_post_path%></li>
+              <% end %>
+          <% else %>>
+            <li  class="page-scroll"><%= link_to "Sign In", new_user_session_path %></li>
+            <li  class="page-scroll"><%= link_to "Sign Up", new_user_registration_path %></li>
+         <% end %>
+        </ul>
+
+        </div>
+    </div>
+
+      </nav>
+       <footer>
+      <div class="leftp">
+
+           <div style="display:inline-block;">JOIN US<span class="sep">|</span></div>
+           <%= link_to image_tag("http://vignette3.wikia.nocookie.net/callofduty/images/3/3f/Facebook_icon.png/revision/20120119193552",height:'30', width:'30'),"https://www.facebook.com" %>
+
+      </div>
+    </footer>
+	<!--div class="leftp">
+	<div class="footer-landing">
+		<div style="display:inline-block;">© 2016 copyright
+			<span class="sep">|</span>
+			<span class="ftjoinus">JOIN US</span>
+		</div>
+	<div class="symbols" style="display:inline-block;">
+		<a  title="Join us on Facebook" href="www.facebook.com" target="_blank"><img src="/assets/fb.png" width="25" height="25"></a>
+		<a  title="Follow us on Twitter" href="" target="_blank"><img src="/assets/twitter.png" width="25" height="25"></a>
+		<a  title="View us on Instagram" href="" target="_blank"><img src="/assets/instagram.png" width="25" height="25"></a>
+		<a  title="View us on google plus" href="" target="_blank"><img src="/assets/google-plus.png" width="25" height="25"></a>
+	</div>
+	</div>
+</div>
+	</div-->
+
+
+
+        <p class="notice"><%= notice %></p>
+        <p class="alert"><%= alert %></p>
+
+<%= yield %>
+
+</body>
+</html>

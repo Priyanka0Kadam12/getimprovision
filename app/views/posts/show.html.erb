@@ -1,0 +1,64 @@
+<html>
+<head>
+<title>Make choice</title>
+
+</head>
+<body>
+<p id="notice"><%= notice %></p>
+
+
+
+ <div class="comments wd">
+   <div class="modal-dialog wd ">
+  <div class="modal-content">
+    <div class="modal-header">
+      <div id="img">
+      <%= link_to image_tag(@post.image.url), target: '_blank' %>
+    </div>
+  </div>
+      <div class="modal-body ">
+
+            <%= link_to image_tag("https://cdn0.iconfinder.com/data/icons/basic-ui-elements-colored/700/08_heart-2-128.png",height: '30', width: '30'), like_path(@post) %>
+            &nbsp;&nbsp;&nbsp;<%= @post.likes.count %> Likes&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              <%= @post.comments.count %> Comments&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              <a href="#comment">Add a comment<img src="https://cdn3.iconfinder.com/data/icons/complete-set-icons/512/comment512x512.png", height='40',width='40'> </a><hr></hr>
+
+                <%= render @post.comments %>
+                <h4><a name="comment"> Add a comment</a></h4>
+
+
+
+
+    <%= form_for([@post, @post.comments.build])  do |f| %>
+
+
+      <div class="field">
+        <%= f.label :name %><br>
+        <%= f.text_field :name %>
+      </div>
+      <div class="field">
+        <%= f.label :body %><br>
+        <%= f.text_field :body %>
+      </div><br/>
+      <div class="btn">
+        <%= f.submit 'Post', class: "btn btn-large btn-primary" %>
+      </div>
+      <!--botton class="btn"><%= link_to image_tag("https://cdn1.iconfinder.com/data/icons/web-essentials-circle-style/48/send-512.png", height:'30',width:'30'), { action: "create" }  %></button-->
+    <% end %>
+
+<% if user_signed_in? && current_user.email=="priyanka.kadam615@gmail.com" %>
+
+    <%= link_to 'Edit', edit_post_path(@post) %> |
+    <%= link_to 'Back', posts_path %> |
+    <%= link_to 'delete', @post,method: :delete, data: { confirm: 'Are you sure?' } %>
+
+<% end %>
+    </div>
+  </div>
+</div>
+</div>
+<br/><br/><br/><br/><br/><br/><br/><br/><br/>
+
+
+</body>
+</html>

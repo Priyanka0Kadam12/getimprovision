@@ -1,0 +1,38 @@
+body{
+  background: url("https://s19.postimg.org/qhq9d9z37/clothes3.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+.gallery{display:inline-block}
+
+.grid
+{
+    float: left;
+
+    border: 3px solid #000;
+    border-radius: 0px;
+
+     transition: all 2s ;
+
+}
+
+.grid:hover
+{
+    transform: scale(0.9);
+}
+.space{
+  align-items: center;
+}
+.myback{
+  background-color: #000;
+}
+.w3-display-container{position:relative}
+.w3-image,.w3-image img{max-width:100%;height:auto}
+.w3-fluid{max-width:100%;height:auto}
+.w3-margin-bottom{margin-bottom:30px!important}
+.w3-card-4,.w3-hover-shadow:hover{box-shadow:0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19)!important}
+.w3-margin-32{margin:32px!important}
+.w3-animate-fading{-webkit-animation:fading 10s infinite;animation:fading 10s }
+@-webkit-keyframes fading{0%{opacity:0}50%{opacity:1}100%{opacity:0}}
+@keyframes fading{0%{opacity:0}50%{opacity:1}100%{opacity:0}}
